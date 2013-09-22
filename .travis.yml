@@ -1,0 +1,12 @@
+language: ruby
+before_install:
+  - gem install bundler --pre
+rvm:
+- 2.0.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: D35IEo3bC+wxLhnKoSRWalABicagJ9ciuK5QCdQm5r6owwbD6HOEufJ+dZt850OQzCz8T+4ksnd+IJXbhXA5qFNTypqHRAVfhTf6hcT3s6KRd+b5LOOnBJwVhEngMdvoJ+6DH++aofTf1GtimmmYXyuQMFUhchGuXceFp+tsQ2s=
+  app: wondercode
+  on:
+    repo: WonderCoders/wondercode
