@@ -29,6 +29,16 @@ class TagsController < ApplicationController
       render action: 'new'
     end
   end
+  
+  def add
+    @tag = Tag.find_or_create_by(name: params[:new_tag])
+    repository = Repository.find(params[:repository])
+    @tag.repositories << repository
+    repository.tags << @tag
+    repository.save
+    @tag.save
+    redirect_to repositories_url
+  end
 
   # PATCH/PUT /tags/1
   def update
