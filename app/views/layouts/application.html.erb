@@ -2,32 +2,46 @@
 <html>
 <head>
   <title>Wondercode</title>
+  <link rel="icon" type="image/png" href="<%= image_url 'favicon.png' %>">
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="span2">
-        <img src="http://placehold.it/150x40" alt="WonderCode">
-      </div>
-      <div class="span7">
-        <form class="navbar-search">
-          <input type="text" class="search-query" placeholder="Search">
-        </form>
-      </div>
-      <div class="span3 text-right">
-        <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path) %>
-        <% else %>
-          <%= link_to('Login with GitHub', user_omniauth_authorize_path(:github))  %>
-        <% end %>
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="span2">
+          <%= image_tag 'logo.png' %>
+        </div>
+        <div class="span7">
+          <form class="row navbar-search" action="">
+            <div class="span">
+              <input type="text" name="q" class="span5" placeholder="Search">
+            </div>
+            <div class="span">
+              <button class="btn">Search</button>
+            </div>
+          </form>
+        </div>
+        <div class="span3 text-right navbar-search">
+          <% if user_signed_in? %>
+            <%= link_to 'Logout', destroy_user_session_path, class: 'btn' %>
+          <% else %>
+            <%= link_to 'Login with GitHub', user_omniauth_authorize_path(:github), class: 'btn btn-success'  %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 
-  <hr>
+  <div class="container" id="main-content">
+    <div class="well">
+      <h3>Review code [...]</h3>
+    </div>
+  </div>
+
   <div class="container">
     <%= yield %>
   </div>

@@ -1,0 +1,50 @@
+#main-content {
+  padding-top: 70px;
+}
+
+.header {
+  height: 44px;
+  padding-top: 5px;
+  background-color: #eee;
+  margin-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+h4 {
+  margin-top: 0;
+}
+
+.repo-wrapper {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+
+  img {
+    max-width: 80px;
+  }
+  .content {
+    background-color: #fff;
+    margin: 10px;
+  }
+
+
+  .tags, .details {
+    width: 48%
+  }
+  .details {
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+    .text {
+      margin-left: 90px;
+    }
+  }
+  .tags {
+  }
+}
+
+.languages {
+  margin: 0 10px;
+  color: #999;
+  font-size: 11px;
+}

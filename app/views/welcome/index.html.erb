@@ -1,17 +1,29 @@
 <% @repositories.each do |repo| %>
-  <div class="well">
-    <img class="pull-left img-rounded" src="<%= repo.avatar_url %>">
-    <h4 class="pull-left">
-      <%= repo.fullname %>
-    </h4>
-    <span class="pull-left">
-      <%= repo.languages %>
-    </span>
-    <div class="pull-right">
-      <a class="btn">
-        Add tag
-      </a>
+  <div class="repo-wrapper thumbnail">
+    <div class="content">
+
+      <div class="details pull-left">
+        <img src="<%= repo.avatar_url %>" class="img-rounded pull-left">
+        <div class="text">
+          <h4>
+            <%= link_to repo.fullname, repo.repo_url, target: repo.fullname %>
+          </h4>
+          <p><%= repo.description %></p>
+        </div>
+      </div>
+
+      <div class="tags pull-right">
+        <% unless repo.tags.empty? %>
+          <%= repo.tags.map{|t| t.name}.join","%>
+        <% end %>
+        <a href="#" class="btn btn-success">Add Review</a>
+      </div>
+
+      <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
+    <div class="languages">
+      <%= repo.languages.join ', ' %>
+    </div>
+
   </div>
 <% end %>
