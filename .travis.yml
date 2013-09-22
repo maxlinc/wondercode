@@ -1,6 +1,8 @@
 language: ruby
 before_install:
   - gem install bundler --pre
+bundler_args: --jobs 4
+services: mongodb
 rvm:
 - 2.0.0
 deploy:
