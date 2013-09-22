@@ -21,7 +21,7 @@ namespace :repos do
         languages: languages
       }
 
-      ProjectRepository.where(repo_url: data[:repo_url]).find_or_create_by(data)
+      Repository.where(repo_url: data[:repo_url]).find_or_create_by(data)
     end
   end
 end
