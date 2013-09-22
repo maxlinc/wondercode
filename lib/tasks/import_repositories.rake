@@ -1,11 +1,12 @@
 # Still need some fixes (Sometimes it just doesn't work. Probably auth issues with GitHub)
-ACCESS_TOKEN = "2ecc65f8e62cc41be532c1395f9a8762b373487d"
+ACCESS_TOKEN = "367ed08b48d29cd10ec864c594fa2629b0c8bde9"
 REPOSITORIES_URL = "https://api.github.com/repositories"
 
 namespace :repos do
   desc "Import repositores from Github"
 
   task :import => :environment do
+    require 'pry'; binding.pry
     repositories = get_json_from(REPOSITORIES_URL)
 
     repositories.each do |repo|
