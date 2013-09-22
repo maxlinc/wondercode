@@ -20,6 +20,8 @@ gem 'rest-client'
 gem 'devise'
 gem 'omniauth-github'
 
+gem 'sass-rails', '~> 4.0.0'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
