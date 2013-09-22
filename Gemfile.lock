@@ -93,8 +93,6 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
-    octokit (2.1.1)
-      sawyer (~> 0.3.0)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
@@ -146,9 +144,6 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    sawyer (0.3.0)
-      faraday (~> 0.8, < 0.10)
-      uri_template (~> 0.5.0)
     slop (3.4.6)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -176,7 +171,6 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    uri_template (0.5.3)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -190,7 +184,6 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   mongoid!
-  octokit
   omniauth-github
   pry
   rails (= 4.0.0)
