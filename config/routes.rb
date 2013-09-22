@@ -1,6 +1,7 @@
 Wondercode::Application.routes.draw do
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"},
     :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -11,6 +12,8 @@ Wondercode::Application.routes.draw do
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
     get 'dashboard', :to => 'dashboard#index'
   end
+
+  resources :repositories
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -46,7 +49,7 @@ Wondercode::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
