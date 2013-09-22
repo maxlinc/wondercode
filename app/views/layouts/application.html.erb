@@ -7,20 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-fluid-top">
-    <div class="span1 offset11">
-      <% if user_signed_in? %>
-        <li>
-        <%= link_to('Logout', destroy_user_session_path) %>
-        </li>
-      <% else %>
-        <li>
-        <%= link_to('Login with GitHub', user_omniauth_authorize_path(:github))  %>
-        </li>
-      <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="span2">
+        <img src="http://placehold.it/150x40" alt="WonderCode">
+      </div>
+      <div class="span7">
+        <form class="navbar-search">
+          <input type="text" class="search-query" placeholder="Search">
+        </form>
+      </div>
+      <div class="span3 text-right">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path) %>
+        <% else %>
+          <%= link_to('Login with GitHub', user_omniauth_authorize_path(:github))  %>
+        <% end %>
+      </div>
     </div>
   </div>
-<%= yield %>
+
+  <hr>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

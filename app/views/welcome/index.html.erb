@@ -1,0 +1,17 @@
+<% @repositories.each do |repo| %>
+  <div class="well">
+    <img class="pull-left img-rounded" src="<%= repo.avatar_url %>">
+    <h4 class="pull-left">
+      <%= repo.fullname %>
+    </h4>
+    <span class="pull-left">
+      <%= repo.languages %>
+    </span>
+    <div class="pull-right">
+      <a class="btn">
+        Add tag
+      </a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+<% end %>
