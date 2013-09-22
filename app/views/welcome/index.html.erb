@@ -13,10 +13,23 @@
       </div>
 
       <div class="tags pull-right">
+        <% 4.times do |i| %>
+          <div class="tag">
+            <a href="#" class="rate btn btn-mini up"><%= image_tag 'up.png', width: 14 %></a>
+            <a href="#" class="rate btn btn-mini down"><%= image_tag 'down.png', width: 14 %></a>
+            <div class="count">
+              +<%= i*4 %>
+            </div>
+            <div class="name">
+              Tests with capybara <%= i*4 %>
+            </div>
+          </div>
+        <% end %>
+
         <% unless repo.tags.empty? %>
           <%= repo.tags.map{|t| t.name}.join","%>
         <% end %>
-        <a href="#" class="btn btn-success">Add Review</a>
+        <!-- <a href="#" class="btn btn-success">Make Review</a> -->
       </div>
 
       <div class="clearfix"></div>
