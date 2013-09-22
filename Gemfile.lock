@@ -29,6 +29,8 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     bson (1.9.2)
+    bson_ext (1.9.2)
+      bson (~> 1.9.2)
     builder (3.1.4)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -162,6 +164,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bson_ext
   database_cleaner
   devise
   factory_girl_rails
