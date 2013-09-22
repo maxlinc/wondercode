@@ -7,8 +7,10 @@ class Repository
   field :avatar_url, type: String
   field :languages, type: Array
   field :url, type: String
+  field :positive_vote_count, type: Integer, default: 0
+  field :negative_vote_count, type: Integer, default: 0
 
-  has_and_belongs_to_many :tags
+  embeds_many :tags
 
   def fullname
     "#{login}/#{name}"
