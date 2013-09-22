@@ -18,6 +18,7 @@ namespace :repos do
         login: repo["owner"]["login"],
         avatar_url: repo["owner"]["avatar_url"],
         repo_url: repo["html_url"],
+        description: repo["description"],
         languages: languages
       }
 
