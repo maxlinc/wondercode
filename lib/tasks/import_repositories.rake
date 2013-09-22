@@ -27,5 +27,5 @@ namespace :repos do
 end
 
 def get_json_from(url)
-  JSON.parse(RestClient.get(url))
+  JSON.parse(RestClient.get(url, access_token: ACCESS_TOKEN))
 end
