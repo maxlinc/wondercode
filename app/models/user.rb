@@ -5,7 +5,8 @@ class User
   devise :omniauthable
 
   field :email
-  validates_presence_of :email
+  field :password
+  validates_presence_of :email, :password
 
   def self.find_for_open_id(access_token, signed_in_resource=nil)
     data = access_token.info

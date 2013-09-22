@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :user do
     email 'example@example.com'
+    password Devise.friendly_token[0,20]
   end
 end
