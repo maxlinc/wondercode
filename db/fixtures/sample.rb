@@ -1,3 +1,8 @@
+def random_languages
+  langs = %w[ruby python php node c++ java]
+  Array.new((1..5).to_a.sample) { langs.sample }
+end
+
 Tag.seed(:name,
   { :name => 'rubyguy::faker'},
   { :name => 'rails::rails'},
@@ -13,7 +18,9 @@ tags = Tag.all
       name: Faker::Lorem.word,
       login: Faker::Internet.user_name,
       repo_url: Faker::Internet.url,
-      languages: %w[a b c d],
+      avatar_url: "https://identicons.github.com/#{Faker::Address.state_abbr}.png",
+      description: Faker::Lorem.paragraph,
+      languages: random_languages
       # tags: Array.new(2) { tags.sample }
     }
   )

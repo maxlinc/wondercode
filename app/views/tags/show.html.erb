@@ -1,27 +1,32 @@
-<p id="notice"><%= notice %></p>
+<% @repos.each do |repo| %>
+  <div class="repo-wrapper thumbnail">
+    <div class="content">
 
-<h1>Usages for <%= @tag %></h1>
+      <div class="details pull-left">
+        <img src="<%= repo.avatar_url %>" class="img-rounded pull-left">
+        <div class="text">
+          <h4>
+            <%= link_to repo.fullname, repo.repo_url, target: repo.fullname %>
+          </h4>
+          <p><%= repo.description %></p>
+        </div>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th>Tags</th>
-      <th></th>
-    </tr>
-  </thead>
+      <div class="tags pull-right">
+        <% repo.tags.each do |t| %>
+          <div class="tag">
+            <div class="name">
+              <%= link_to t, github_path(user: t.user, repo: t.repo) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
 
-  <tbody>
-    <% @repos.each do |repo| %>
-      <tr>
-        <td><%= repo.name %></td>
-        <td><%= repo.repo_url %></td>
-        <td><%= repo.tags.map(&:name).join(', ') %></td>
-        <td><%= link_to 'Show', repo %></td>
-        <td><%= link_to 'Edit', edit_repository_path(repo) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+      <div class="clearfix"></div>
+    </div>
+    <div class="languages">
+      <%= repo.languages.join ', ' %>
+    </div>
+
+  </div>
+<% end %>
