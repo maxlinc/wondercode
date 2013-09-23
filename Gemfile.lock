@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/johnbintz/seed-fu-mongoid.git
+  revision: a6b1bbaf7740e9d4785970c261baae248097c664
+  specs:
+    seed-fu-mongoid (0.0.1)
+      mongoid (>= 3.0.0)
+
+GIT
   remote: git://github.com/mongoid/mongoid.git
   revision: a0021858bbb405b3e99dfdda4e81a1e9c3d9dc4e
   specs:
@@ -7,13 +14,6 @@ GIT
       moped (~> 1.5)
       origin (~> 1.0)
       tzinfo (~> 0.3.37)
-
-GIT
-  remote: git@github.com:johnbintz/seed-fu-mongoid.git
-  revision: a6b1bbaf7740e9d4785970c261baae248097c664
-  specs:
-    seed-fu-mongoid (0.0.1)
-      mongoid (>= 3.0.0)
 
 GEM
   remote: https://rubygems.org/
