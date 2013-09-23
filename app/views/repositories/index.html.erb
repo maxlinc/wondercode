@@ -21,14 +21,14 @@
 		
         <td><%= link_to 'Show', repository %></td>
         <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
-		<td><%= link_to_function 'Tags', "$('#tags"+repository.id+"').toggle()"%></td>
+		<td><%#= link_to_function 'Tags', "$('#tags"+repository.id+"').toggle()"%></td>
 		<td>
-			<div id= <%="tags#{repository.id}"%> class='hidden'/>
-			    <%= form_tag(controller: 'tags', action: 'add') do %>
-			      <%= text_field_tag :new_tag %>
-				  <%= hidden_field_tag(:repository, repository.id) %>
-				  <%= submit_tag "Add" %>
-			    <% end %>
+			<div id= <%#="tags#{repository.id}"%> class='hidden'/>
+			    <%#= form_tag(controller: 'tags', action: 'add') do %>
+			      <%#= text_field_tag :new_tag %>
+				  <%#= hidden_field_tag(:repository, repository.id) %>
+				  <%#= submit_tag "Add" %>
+			    <%# end %>
 			</div>
 		</td>
       </tr>

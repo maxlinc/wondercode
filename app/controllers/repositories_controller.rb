@@ -62,7 +62,11 @@ class RepositoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_repository
-      @repository = Repository.find(params[:id])
+      unless params[:repo].nil?
+        @repository = Repository.where(login: params[:repository_id], name: params[:repo]).first
+      else
+        @repository = Repository.find params[:id]
+      end
     end
 
     # Only allow a trusted parameter "white list" through.

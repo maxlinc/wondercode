@@ -3,8 +3,11 @@ Wondercode::Application.routes.draw do
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"},
     :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :tags
-  get ':user/:repo' => 'tags#show', as: 'github'
+  resources :tags do
+    collection do
+      post 'add'
+    end
+  end
 
   resources :repositories
   # The priority is based upon order of creation: first created -> highest priority.
@@ -18,7 +21,10 @@ Wondercode::Application.routes.draw do
     get 'dashboard', :to => 'dashboard#index'
   end
 
-  resources :repositories
+  resources :repositories do
+    get ':repo' => 'repositories#show', as: 'github'
+  end
+  get ':user/:repo' => 'tags#show', as: 'github'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
