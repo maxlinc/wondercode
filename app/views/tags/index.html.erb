@@ -1,27 +1,8 @@
-<h1>Listing tags</h1>
+<div class="centered-content text-center">
+  <h1 class="text-center">Find me projects using:</h1>
+  <hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tags.each do |tag| %>
-      <tr>
-        <td><%= tag.name %></td>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tag', new_tag_path %>
+  <% @tags.each do |tag| %>
+    <%= link_to tag, github_path(user: tag.user, repo: tag.repo), class: 'thumbnail tag' %>
+  <% end %>
+</div>
