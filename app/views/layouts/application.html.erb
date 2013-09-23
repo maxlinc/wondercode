@@ -26,9 +26,9 @@
         </div>
         <div class="span3 text-right navbar-search">
           <% if user_signed_in? %>
-            <%= link_to 'Logout', destroy_user_session_path, class: 'btn' %>
+            <%= link_to 'Logout', destroy_user_session_path, class: 'btn btn-link' %>
           <% else %>
-            <%= link_to 'Login with GitHub', user_omniauth_authorize_path(:github), class: 'btn btn-success'  %>
+            <%= link_to 'Login with GitHub', user_omniauth_authorize_path(:github), class: 'btn btn-link'  %>
           <% end %>
         </div>
       </div>
