@@ -1,3 +1,7 @@
+<div class="margin">
+  <h3 class="muted">Code examples for <strong><%= @tag %></strong></h3>
+</div>
+
 <% @repos.each do |repo| %>
   <div class="repo-wrapper thumbnail">
     <div class="content">
@@ -13,12 +17,9 @@
       </div>
 
       <div class="tags pull-right">
+        <p class="muted">This project uses:</p>
         <% repo.tags.each do |t| %>
-          <div class="tag">
-            <div class="name">
-              <%= link_to t, github_path(user: t.user, repo: t.repo) %>
-            </div>
-          </div>
+          <%= link_to t, github_path(user: t.user, repo: t.repo), class: 'thumbnail tag' %>
         <% end %>
       </div>
 

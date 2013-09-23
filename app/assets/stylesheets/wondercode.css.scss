@@ -2,7 +2,7 @@ $rating_zindex: 100;
 $header_zindex: 1000;
 
 #main-content {
-  padding-top: 70px;
+  padding-top: 60px;
 }
 
 .header {
@@ -54,53 +54,39 @@ h4 {
 }
 
 #main-text {
-  margin-bottom: 40px;
-
   h1 {
     font-weight: normal;
-    font-size: 24px;
+    font-size: 18px;
     color: #999;
     font-style: italic;
+    margin: 0;
   }
 
 }
 
 .tag {
-  background-color: #fff;
-  border: 1px solid #ccc;
   display: inline-block;
-  position: relative;
   margin-bottom: 10px;
   margin-right: 5px;
-
-  .count {
-    display: inline-block;
-    border-right: 1px solid #ddd;
-  }
-  .name, .count {
-    display: inline-block;
-    padding: 3px 5px;
-  }
-  .rate {
-    position: absolute;
-    z-index: $rating_zindex;
-    display: none;
-    left: -1px;
-    top: 100%;
-    padding-top: 3px;
-    padding-bottom: 3px;
-
-    &.up {
-      top: auto;
-      bottom: 100%
-    }
-  }
   &:hover {
-    .rate {
-      display: block;
-    }
+    text-decoration: none;
   }
-  .name {
-    color: #777;
+}
+
+p.muted {
+  font-size: 12px
+}
+
+.margin {
+  margin-bottom: 40px;
+
+  h3.muted {
+    font-size: 18px;
+    font-weight: normal;
+
+    strong {
+      color: #333;
+      font-size: 24px;
+    }
   }
 }

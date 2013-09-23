@@ -13,17 +13,16 @@
     <div class="container">
       <div class="row">
         <div class="span2">
-          <%= image_tag 'logo.png' %>
+          <%= link_to '/' do %>
+            <%= image_tag 'logo.png' %>
+          <% end %>
         </div>
         <div class="span7">
-          <form class="row navbar-search" action="">
-            <div class="span">
-              <input type="text" name="q" class="span5" placeholder="Search">
-            </div>
-            <div class="span">
-              <button class="btn">Search</button>
-            </div>
-          </form>
+          <div id="main-text">
+            <h1 class="text-center">
+              "Learn by code examples"
+            </h1>
+          </div>
         </div>
         <div class="span3 text-right navbar-search">
           <% if user_signed_in? %>
@@ -37,11 +36,6 @@
   </div>
 
   <div class="container" id="main-content">
-    <div id="main-text">
-      <h1 class="text-center">
-        "Learn with real projects reviews"
-      </h1>
-    </div>
   </div>
 
   <div class="container">
