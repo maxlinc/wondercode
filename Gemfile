@@ -21,11 +21,13 @@ gem 'devise'
 gem 'omniauth-github'
 
 gem 'sass-rails', '~> 4.0.0'
+gem 'seed-fu-mongoid', :git => 'git@github.com:johnbintz/seed-fu-mongoid.git'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'faker'
 end
 
 group :development do

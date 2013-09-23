@@ -8,6 +8,7 @@ class Repository
   field :avatar_url, type: String
   field :languages, type: Array
   field :url, type: String
+  field :type, type: Symbol
 
   has_and_belongs_to_many :tags
 

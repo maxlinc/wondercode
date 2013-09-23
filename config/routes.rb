@@ -3,10 +3,9 @@ Wondercode::Application.routes.draw do
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"},
     :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
-  resources :tags do 
-    collection do
-      post 'add'  
-    end
+  resources :tags do
+    # /tags/rubyguy/faker
+    get ':user/:repo' => 'tags#show', on: :collection
   end
 
   resources :repositories
