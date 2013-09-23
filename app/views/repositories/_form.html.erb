@@ -17,7 +17,19 @@
   </div>
   <div class="field">
     <%= f.label :repo_url %><br>
-    <%= f.text_field :repo_url %>
+    <%= f.url_field :repo_url %>
+  </div>
+  <div class="field">
+    <%= f.label :homepage %><br>
+    <%= f.url_field :url %>
+  </div>
+  <div class="languages">
+    <%= f.label :languages %><br>
+    <%= f.text_area :languages %>
+  </div>
+  <div class="description">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
   </div>
   <div class="actions">
     <%= f.submit %>

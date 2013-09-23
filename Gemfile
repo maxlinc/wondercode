@@ -20,6 +20,9 @@ gem 'rest-client'
 gem 'devise'
 gem 'omniauth-github'
 
+# GitHub API
+gem "octokit", "~> 2.0"
+
 gem 'sass-rails', '~> 4.0.0'
 gem 'seed-fu-mongoid', :git => 'git@github.com:johnbintz/seed-fu-mongoid.git'
 

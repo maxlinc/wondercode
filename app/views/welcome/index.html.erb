@@ -35,7 +35,9 @@
       <div class="clearfix"></div>
     </div>
     <div class="languages">
-      <%= repo.languages.join ', ' %>
+      <% unless repo.tags.empty? %>
+        <%= repo.languages.join ', ' %>
+      <% end %>
     </div>
 
   </div>

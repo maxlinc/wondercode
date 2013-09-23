@@ -1,1 +1,18 @@
-Welcome!
+<p class="lead">Welcome <strong><%= @user.nickname %></strong>!</p>
+<p class="lead">Here are your repos:</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Published?</th>
+    </tr>
+  </thead>
+  <% @user.repos.each do |repo| %>
+  <tr>
+    <td><h4><%= repo.name %></h4></td>
+    <td>
+      <%= link_to "Wonderize!", new_repository_path(repo: repo.name), :class => "btn btn-primary btn-lg" %>
+    </td>
+  </tr>
+  <% end %>
+</table>

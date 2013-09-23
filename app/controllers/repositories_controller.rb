@@ -1,4 +1,5 @@
 class RepositoriesController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_repository, only: [:show, :edit, :update, :destroy]
 
   # GET /repositories
@@ -12,7 +13,16 @@ class RepositoriesController < ApplicationController
 
   # GET /repositories/new
   def new
-    @repository = Repository.new
+    @user = current_user
+    octokit = @user.octokit
+    github_repo = octokit.repo owner: @user.nickname, repo: params[:repo]
+    @repository = Repository.new(
+      name: github_repo.name,
+      repo_url: "http://github.com/#{@user.nickname}/#{github_repo.name}",
+      url: github_repo.homepage,
+      languages: [github_repo.language],
+      description: github_repo.description
+    )
   end
 
   # GET /repositories/1/edit
@@ -21,7 +31,11 @@ class RepositoriesController < ApplicationController
 
   # POST /repositories
   def create
-    @repository = Repository.new(repository_params)
+    @repository = Repository.new(repository_params.merge({
+        login: current_user.nickname,
+        languages: ['placeholder']
+      })
+    )
 
     if @repository.save
       redirect_to @repository, notice: 'Repository was successfully created.'
@@ -53,6 +67,10 @@ class RepositoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def repository_params
-      params.require(:repository).permit(:name, :url)
+      params.require(:repository).permit(
+        :name, :description, :login,
+        :repo_url, :url, :type
+      )
+      # language is tricky
     end
 end
