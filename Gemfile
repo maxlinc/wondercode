@@ -3,7 +3,7 @@ ruby "2.0.0"
 
 gem 'rails_12factor', group: :production
 gem 'rails', '4.0.0'
-gem 'thin'
+gem 'unicorn'
 
 gem 'mongoid', git: "git://github.com/mongoid/mongoid.git"
 gem 'bson_ext'
@@ -35,5 +35,8 @@ end
 
 group :development do
   gem 'pry'
+  gem 'librarian-puppet'
+  gem 'puppet'
+  gem 'capistrano-unicorn', :require => false
 end
 

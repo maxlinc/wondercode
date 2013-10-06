@@ -1,0 +1,36 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    alup/rbenv (1.2.0)
+    example42/mongodb (2.0.13)
+      example42/puppi (>= 2.0.0)
+    example42/puppi (2.1.1)
+    ploperations/bundler (1.0.0)
+    ploperations/unicorn (1.0.0)
+      ploperations/bundler (>= 0.0.1)
+    puppetlabs/apt (1.3.0)
+      puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/nodejs (0.4.0)
+      puppetlabs/apt (>= 0.0.3)
+      puppetlabs/stdlib (>= 2.0.0)
+    puppetlabs/ruby (0.0.2)
+    puppetlabs/stdlib (4.1.0)
+
+GIT
+  remote: git@github.com:puppetlabs-operations/puppet-rack.git
+  ref: master
+  sha: 5339449110ddaac0874dcfd8ff798c896fee7ee4
+  specs:
+    ploperations/rack (0.0.1)
+
+DEPENDENCIES
+  alup/rbenv (>= 0)
+  example42/mongodb (>= 0)
+  ploperations/bundler (>= 0)
+  ploperations/rack (>= 0)
+  ploperations/unicorn (>= 0)
+  puppetlabs/apt (>= 0)
+  puppetlabs/nodejs (>= 0)
+  puppetlabs/ruby (>= 0)
+  puppetlabs/stdlib (>= 0)
+
