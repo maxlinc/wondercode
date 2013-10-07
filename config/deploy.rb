@@ -14,7 +14,8 @@ require 'capistrano/ext/multistage'
 require "bundler/capistrano"
 set :bundle_flags, "--deployment --quiet --binstubs"
 set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH",
+  'MONGOLAB_URI' => "mongodb://$mongoid_user:$mongoid_password@dbh46.mongolab.com:27467/wondercoders-dev"
 }
 
 role(:web) { domain }
