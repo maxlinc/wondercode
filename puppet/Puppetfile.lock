@@ -4,17 +4,24 @@ FORGE
     alup/rbenv (1.2.0)
     example42/mongodb (2.0.13)
       example42/puppi (>= 2.0.0)
-    example42/puppi (2.1.1)
+    example42/puppi (2.1.2)
     ploperations/bundler (1.0.0)
-    ploperations/unicorn (1.0.0)
-      ploperations/bundler (>= 0.0.1)
     puppetlabs/apt (1.3.0)
       puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/nodejs (0.4.0)
       puppetlabs/apt (>= 0.0.3)
       puppetlabs/stdlib (>= 2.0.0)
-    puppetlabs/ruby (0.0.2)
+    puppetlabs/ruby (0.1.0)
     puppetlabs/stdlib (4.1.0)
+
+GIT
+  remote: git://github.com/maxlinc/puppet-unicorn.git
+  ref: relative_executables
+  sha: c830bb066eff9b7e49911ba92cdd4af129fd6246
+  specs:
+    unicorn (1.0.0)
+      ploperations/bundler (>= 0.0.1)
+      ploperations/rack (>= 0.0.1)
 
 GIT
   remote: git@github.com:puppetlabs-operations/puppet-rack.git
@@ -28,9 +35,9 @@ DEPENDENCIES
   example42/mongodb (>= 0)
   ploperations/bundler (>= 0)
   ploperations/rack (>= 0)
-  ploperations/unicorn (>= 0)
   puppetlabs/apt (>= 0)
   puppetlabs/nodejs (>= 0)
   puppetlabs/ruby (>= 0)
   puppetlabs/stdlib (>= 0)
+  unicorn (>= 0)
 

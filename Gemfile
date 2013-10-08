@@ -4,6 +4,7 @@ ruby "2.0.0"
 gem 'rails_12factor', group: :production
 gem 'rails', '4.0.0'
 gem 'unicorn'
+gem 'dotenv'
 
 gem 'mongoid', git: "git://github.com/mongoid/mongoid.git"
 gem 'bson_ext'

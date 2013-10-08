@@ -40,15 +40,16 @@ node default {
   }
 
   unicorn::app { 'wondercode':
-    approot     => '/opt/apps/current',
-    pidfile     => '/opt/apps/current/tmp/pids/unicorn.pid',
-    socket      => '/opt/apps/current/tmp/pids/unicornunicorn.sock',
-    user        => 'wondercode',
-    group       => 'wondercode',
-    preload_app => true,
-    rack_env    => 'production',
-    source      => 'bundler',
-    require     => [
+    approot            => '/opt/apps/current',
+    pidfile            => '/opt/apps/current/tmp/pids/unicorn.pid',
+    socket             => '/opt/apps/current/tmp/pids/unicornunicorn.sock',
+    user               => 'wondercode',
+    group              => 'wondercode',
+    preload_app        => true,
+    rack_env           => 'production',
+    use_binstubs       => true,
+    source             => 'bundler',
+    require            => [
       # Class['ruby::dev'],
       # Bundler::Install[$app_root],
     ],
