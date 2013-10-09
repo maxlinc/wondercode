@@ -25,7 +25,7 @@ GIT
       ploperations/rack (>= 0.0.1)
 
 GIT
-  remote: git@github.com:puppetlabs-operations/puppet-rack.git
+  remote: git://github.com/puppetlabs-operations/puppet-rack.git
   ref: master
   sha: 5339449110ddaac0874dcfd8ff798c896fee7ee4
   specs:
