@@ -23,15 +23,13 @@ end
 set :rails_env,   "production"
 
 set :user, "wondercode"
-set :mongoid_user, 'wondercode'
-set(:mongoid_password) { Capistrano::CLI.ui.ask("Mongo password: ") }
 set :ssh_options, {:forward_agent => true, keys: ['wondercode_demo_rsa']}
 
 set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
 
-task :create_image do
+task :save_image do
   image = image_server.create_image "wondercode_#{version}"
   image.wait_for { ready? }
 end
