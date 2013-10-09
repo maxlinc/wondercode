@@ -31,8 +31,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :rackspace do |rs, override|
     rs.server_name = "wondercode-image"
     override.vm.box = "dummy"
-    override.ssh.private_key_path = "~/.ssh/id_rsa"
-    rs.public_key_path = "~/.ssh/id_rsa.pub"
+    override.ssh.private_key_path = ENV['PRIVATE_KEY'] || "~/.ssh/id_rsa"
+    rs.public_key_path = ENV['PUBLIC_KEY'] || "~/.ssh/id_rsa.pub"
     rs.username = ENV['RAX_USERNAME']
     rs.api_key  = ENV['RAX_API_KEY']
     rs.image    = 'Ubuntu 12.04 LTS (Precise Pangolin)'
