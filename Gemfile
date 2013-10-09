@@ -32,7 +32,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'faker'
-  gem "vagrant", :git => "git://github.com/mitchellh/vagrant.git"
 end
 
 group :development do
@@ -41,5 +40,7 @@ group :development do
   gem 'puppet'
   gem 'capistrano', '~> 2.0'
   gem 'fog'
+  gem "vagrant", :git => "git://github.com/mitchellh/vagrant.git"
+  gem "vagrant-rackspace"
 end
 

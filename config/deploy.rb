@@ -21,9 +21,9 @@ end
 
 set :bundle_flags, "--deployment --quiet --binstubs"
 
-role(:web) { domain }
-role(:app) { domain }
-role(:db, :primary => true) { domain }
+# role(:web) { domain }
+# role(:app) { domain }
+# role(:db, :primary => true) { domain }
 
 set(:deploy_to)    { "/opt/apps/wondercode" }
 set(:current_path) { File.join(deploy_to, current_dir) }
