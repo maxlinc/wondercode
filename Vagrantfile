@@ -11,6 +11,7 @@ SCRIPT
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+Vagrant.require_plugin "vagrant-rackspace"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.box = "precise64"
@@ -26,7 +27,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |v, override|
     v.gui = true
-    override.cache.auto_detect = true
   end
 
   config.vm.provider :rackspace do |rs, override|
