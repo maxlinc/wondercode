@@ -25,7 +25,7 @@ role(:web) { domain }
 role(:app) { domain }
 role(:db, :primary => true) { domain }
 
-set(:deploy_to)    { "/opt/apps" }
+set(:deploy_to)    { "/opt/apps/wondercode" }
 set(:current_path) { File.join(deploy_to, current_dir) }
 
 namespace :deploy do

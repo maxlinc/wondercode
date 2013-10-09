@@ -12,15 +12,10 @@ node default {
     shell => '/bin/bash',
   }
 
-  file { ["/opt/apps", "/opt/apps/releases", "/opt/apps/releases/0", "/opt/apps/releases/0/config"]:
+  file { ["/opt/apps", "/opt/apps/wondercode"]:
     ensure => "directory",
     owner  => $deploy_user,
     mode   => 750,
-  }
-
-  file { "/opt/apps/current":
-    ensure => link,
-    target => "/opt/apps/releases/0",
   }
 
   ssh_authorized_key { $deploy_user: 
@@ -48,9 +43,10 @@ node default {
   unicorn::app { 'wondercode':
     # We don't want to start right away
     ensure             => 'stopped',
-    approot            => '/opt/apps/current',
-    pidfile            => '/opt/apps/current/tmp/pids/unicorn.pid',
-    socket             => '/opt/apps/current/tmp/pids/unicornunicorn.sock',
+    config_file        => '/opt/apps/wondercode/unicorn.rb'
+    approot            => '/opt/apps/wondercode/current',
+    pidfile            => '/opt/apps/wondercode/current/tmp/pids/unicorn.pid',
+    socket             => '/opt/apps/wondercode/current/tmp/pids/unicornunicorn.sock',
     user               => 'wondercode',
     group              => 'wondercode',
     preload_app        => true,
