@@ -43,10 +43,10 @@ node default {
   unicorn::app { 'wondercode':
     # We don't want to start right away
     ensure             => 'stopped',
-    config_file        => '/opt/apps/wondercode/unicorn.rb'
+    config_file        => '/opt/apps/wondercode/unicorn.rb',
     approot            => '/opt/apps/wondercode/current',
     pidfile            => '/opt/apps/wondercode/current/tmp/pids/unicorn.pid',
-    socket             => '/opt/apps/wondercode/current/tmp/pids/unicornunicorn.sock',
+    socket             => 8080,
     user               => 'wondercode',
     group              => 'wondercode',
     preload_app        => true,

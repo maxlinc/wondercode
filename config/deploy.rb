@@ -43,5 +43,6 @@ namespace :deploy do
  end
 end
 
+before 'deploy', 'deploy:setup'
 after  'deploy:update_code', 'deploy:env_file'
 before 'deploy:assets:precompile', 'deploy:env_file'
