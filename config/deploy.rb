@@ -1,20 +1,24 @@
-# require 'capistrano-unicorn'
-# require "dotenv/capistrano"
+require 'capistrano/ext/multistage'
+require "bundler/capistrano"
+require "dotenv/capistrano"
 
-set :scm, :none
-set :deploy_via, :copy
-set :repository,  "."
-set :copy_via, :scp
-set :copy_exclude, %w(.git)
+set :scm, :git
+set :repository,  "file:///vagrant"
+set :local_repository, '.'
 set :application, 'wondercode'
 set :use_sudo, false
 set :unicorn_user, 'wondercode'
 
-set :stages, %w(vagrant staging production)
+set :stages, Dir['config/deploy/*.rb'].map{|f| File.basename f, '.rb'} #%w(vagrant staging production)
 set :default_stage, "vagrant"
-require 'capistrano/ext/multistage'
 
-require "bundler/capistrano"
+set(:mongolab_uri) do
+  mongoid_user = Capistrano::CLI.ui.ask("Mongoid User:")
+  mongoid_pass = Capistrano::CLI.password_prompt("Mongoid Pass:")
+  mongoid_uri  = Capistrano::CLI.ui.ask("Mongoid Server URI:")
+  "mongodb://#{mongoid_user}:#{mongoid_pass}@#{mongoid_uri}"
+end
+
 set :bundle_flags, "--deployment --quiet --binstubs"
 
 role(:web) { domain }
@@ -25,6 +29,9 @@ set(:deploy_to)    { "/opt/apps" }
 set(:current_path) { File.join(deploy_to, current_dir) }
 
 namespace :deploy do
+ task :env_file do
+  put "MONGOLAB_URI=\"#{mongolab_uri}\"", "#{shared_path}/.env"
+ end
  task :start do 
   run "service unicorn_wondercode start"
  end
@@ -35,6 +42,6 @@ namespace :deploy do
    run "service unicorn_wondercode restart"
  end
 end
-# after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
-# after 'deploy:restart', 'unicorn:restart'   # app preloaded
-# after 'deploy:restart', 'unicorn:duplicate' # before_fork hook implemented (zero downtime deployments)
+
+after  'deploy:update_code', 'deploy:env_file'
+before 'deploy:assets:precompile', 'deploy:env_file'

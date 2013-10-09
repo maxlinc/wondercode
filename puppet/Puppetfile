@@ -1,6 +1,7 @@
 forge "http://forge.puppetlabs.com"
 
 mod 'puppetlabs/apt'
+mod 'puppetlabs/vcsrepo'
 # ExecJS provider for rails asset compilation
 mod 'puppetlabs/nodejs'
 mod 'puppetlabs/ruby'
@@ -8,5 +9,5 @@ mod 'puppetlabs/stdlib'
 mod 'example42/mongodb'
 mod 'ploperations/rack', :git => 'git@github.com:puppetlabs-operations/puppet-rack.git'
 mod 'ploperations/bundler'
-mod 'unicorn', :git => 'git://github.com/maxlinc/puppet-unicorn.git', :ref => 'relative_executables'
+mod 'unicorn', :git => 'git://github.com/maxlinc/puppet-unicorn.git', :ref => 'rbenv_friendly'
 mod 'alup/rbenv'

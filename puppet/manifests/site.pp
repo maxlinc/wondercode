@@ -1,6 +1,7 @@
 node default {
-  $deploy_user = "wondercode"
-  $rbenv_user = $deploy_user
+  $deploy_user  = "wondercode"
+  $rbenv_user   = $deploy_user
+  $ruby_version = "2.0.0-p247"
 
   include nodejs
 
@@ -11,10 +12,15 @@ node default {
     shell => '/bin/bash',
   }
 
-  file { "/opt/apps":
+  file { ["/opt/apps", "/opt/apps/releases", "/opt/apps/releases/0", "/opt/apps/releases/0/config"]:
     ensure => "directory",
     owner  => $deploy_user,
     mode   => 750,
+  }
+
+  file { "/opt/apps/current":
+    ensure => link,
+    target => "/opt/apps/releases/0",
   }
 
   ssh_authorized_key { $deploy_user: 
@@ -33,13 +39,15 @@ node default {
     user   => $rbenv_user,
     require => Rbenv::Install[$rbenv_user]
   }
-  rbenv::compile { "2.0.0-p247":
+  rbenv::compile { $ruby_version:
     user => $rbenv_user,
     global => true,
     require => Rbenv::Plugin::RubyBuild[$rbenv_user]
   }
 
   unicorn::app { 'wondercode':
+    # We don't want to start right away
+    ensure             => 'stopped',
     approot            => '/opt/apps/current',
     pidfile            => '/opt/apps/current/tmp/pids/unicorn.pid',
     socket             => '/opt/apps/current/tmp/pids/unicornunicorn.sock',

@@ -13,11 +13,12 @@ FORGE
       puppetlabs/stdlib (>= 2.0.0)
     puppetlabs/ruby (0.1.0)
     puppetlabs/stdlib (4.1.0)
+    puppetlabs/vcsrepo (0.1.2)
 
 GIT
   remote: git://github.com/maxlinc/puppet-unicorn.git
-  ref: relative_executables
-  sha: c830bb066eff9b7e49911ba92cdd4af129fd6246
+  ref: rbenv_friendly
+  sha: b31f811a8e1fa54c7ab0087d90e27f868e566b95
   specs:
     unicorn (1.0.0)
       ploperations/bundler (>= 0.0.1)
@@ -39,5 +40,6 @@ DEPENDENCIES
   puppetlabs/nodejs (>= 0)
   puppetlabs/ruby (>= 0)
   puppetlabs/stdlib (>= 0)
+  puppetlabs/vcsrepo (>= 0)
   unicorn (>= 0)
 
