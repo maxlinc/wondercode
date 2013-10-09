@@ -15,7 +15,6 @@ Vagrant.require_plugin "vagrant-rackspace"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.box = "precise64"
-  config.vm.hostname = "wondercode-image"
 
   config.vm.provision :shell, :inline => $bootstrap_script
   config.vm.provision :puppet do |puppet|
@@ -30,6 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provider :rackspace do |rs, override|
+    rs.server_name = "wondercode-image"
     override.vm.box = "dummy"
     override.ssh.private_key_path = "~/.ssh/id_rsa"
     rs.public_key_path = "~/.ssh/id_rsa.pub"

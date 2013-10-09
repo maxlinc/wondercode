@@ -39,6 +39,7 @@ group :development do
   gem 'pry'
   gem 'librarian-puppet'
   gem 'puppet'
-  gem 'capistrano-unicorn', :require => false
+  gem 'capistrano', '~> 2.0'
+  gem 'fog'
 end
 

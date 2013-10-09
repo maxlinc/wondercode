@@ -6,12 +6,24 @@ GIT
       mongoid (>= 3.0.0)
 
 GIT
+  remote: git://github.com/mitchellh/vagrant.git
+  revision: c83ea416ff14baf8d73bffc5e19743309a21d95a
+  specs:
+    vagrant (1.3.5.dev)
+      childprocess (~> 0.3.7)
+      erubis (~> 2.7.0)
+      i18n (~> 0.6.0)
+      log4r (~> 1.1.9)
+      net-scp (~> 1.1.0)
+      net-ssh (~> 2.6.6)
+
+GIT
   remote: git://github.com/mongoid/mongoid.git
-  revision: a0021858bbb405b3e99dfdda4e81a1e9c3d9dc4e
+  revision: 484aa0721e899202cd9579617de1fc0addb1ffbf
   specs:
     mongoid (4.0.0)
       activemodel (~> 4.0.0)
-      moped (~> 1.5)
+      moped (~> 2.0.beta2)
       origin (~> 1.0)
       tzinfo (~> 0.3.37)
 
@@ -42,12 +54,12 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.5)
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    bson (1.9.2)
-    bson_ext (1.9.2)
-      bson (~> 1.9.2)
+    bson (2.0.0.rc2)
+    bson_ext (1.5.1)
     builder (3.1.4)
     capistrano (2.15.5)
       highline
@@ -55,8 +67,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capistrano-unicorn (0.1.10)
-      capistrano
+    childprocess (0.3.9)
+      ffi (~> 1.0, >= 1.0.11)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -66,7 +78,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     database_cleaner (1.1.1)
-    devise (3.1.0)
+    devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -75,7 +87,8 @@ GEM
     diff-lcs (1.2.4)
     dotenv (0.9.0)
     erubis (2.7.0)
-    execjs (2.0.1)
+    excon (0.25.3)
+    execjs (2.0.2)
     facter (1.7.3)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
@@ -86,6 +99,18 @@ GEM
       i18n (~> 0.5)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    ffi (1.9.0)
+    fog (1.15.0)
+      builder
+      excon (~> 0.25.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5)
+      ruby-hmac
+    formatador (0.2.4)
     hashie (2.0.5)
     hiera (1.2.1)
       json_pure
@@ -104,30 +129,36 @@ GEM
     librarian-puppet (0.9.10)
       json
       thor (~> 0.15)
+    log4r (1.1.10)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25)
+    mini_portile (0.5.1)
     minitest (4.7.5)
-    moped (1.5.1)
-    multi_json (1.8.0)
+    moped (2.0.0.beta2)
+      bson (~> 2.0.0.rc2)
+      optionable (~> 0.1.1)
+    multi_json (1.8.1)
     multipart-post (1.2.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (2.7.0)
+    net-ssh (2.6.8)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
-    octokit (2.1.1)
-      sawyer (~> 0.3.0)
+    octokit (2.4.0)
+      sawyer (~> 0.5.1)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
@@ -137,6 +168,7 @@ GEM
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    optionable (0.1.1)
     origin (1.1.0)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
@@ -144,7 +176,7 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    puppet (3.3.0)
+    puppet (3.3.1)
       facter (~> 1.6)
       hiera (~> 1.0)
       rgen (~> 0.6.5)
@@ -163,7 +195,7 @@ GEM
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.1)
-    rails_stdout_logging (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.0.0)
       actionpack (= 4.0.0)
       activesupport (= 4.0.0)
@@ -175,7 +207,7 @@ GEM
       mime-types (>= 1.16)
     rgen (0.6.6)
     rspec-core (2.14.5)
-    rspec-expectations (2.14.2)
+    rspec-expectations (2.14.3)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.3)
     rspec-rails (2.14.0)
@@ -185,14 +217,15 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    sass (3.2.10)
+    ruby-hmac (0.4.0)
+    sass (3.2.12)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    sawyer (0.3.0)
+    sawyer (0.5.1)
+      addressable (~> 2.3.5)
       faraday (~> 0.8, < 0.10)
-      uri_template (~> 0.5.0)
     slop (3.4.6)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -212,7 +245,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (1.3.0)
       coffee-rails
-    tzinfo (0.3.37)
+    tzinfo (0.3.38)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
@@ -220,7 +253,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uri_template (0.5.3)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -229,12 +261,13 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext
-  capistrano-unicorn
+  capistrano (~> 2.0)
   database_cleaner
   devise
   dotenv
   factory_girl_rails
   faker
+  fog
   jquery-rails
   librarian-puppet
   mongoid!
@@ -251,3 +284,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
+  vagrant!
